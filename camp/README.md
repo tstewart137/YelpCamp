@@ -1,2 +1,0 @@
-# camp
- school project
