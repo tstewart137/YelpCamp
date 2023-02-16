@@ -3,7 +3,6 @@ if(process.env.NODE_ENV !== 'production'){
 }
 
 
-console.log(process.env.CLOUDINARY_URL);
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -16,7 +15,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 const mongoSanitize = require('express-mongo-sanitize');
-const helmet = require("helmet");
+//const helmet = require("helmet");
 
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
@@ -93,15 +92,9 @@ passport.use(new LocalStrategy(User.authenticate())); /* tell passport we are us
 passport.serializeUser(User.serializeUser()); /* this tells passport how to put the user in the session */
 passport.deserializeUser(User.deserializeUser()); /* this tells passport how to remove the user from the session */
 
-/* example : */
-/* app.get('/userPage', async (req, res) => {
-    const user = new User({email: 'tom@gmail.com', username:'tom137'})
-    const regUser = await User.register(user, 'mypassword');
-    res.send(regUser)
-}) */
 
 app.use((req, res, next) => {
-    res.locals.currentUser = req.user;
+   res.locals.currentUser = req.user;
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
     next();
