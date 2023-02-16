@@ -25,7 +25,7 @@ const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 const db_url = process.env.db_url ||'mongodb://127.0.0.1:27017/YelpCamp'
 const MongoStore = require('connect-mongo')
-
+console.log(`look here ${db_url} -- ${process.env.NODE_ENV}`);
 //'mongodb://127.0.0.1:27017/YelpCamp'
 //mongoose.connect(db_url, { useNewUrlParser: true, useUnifiedTopology: true }) 
 mongoose.connect(db_url, { useNewUrlParser: true, useUnifiedTopology: true }) 
