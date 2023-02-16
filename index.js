@@ -2,7 +2,7 @@ if(process.env.NODE_ENV !== 'production'){
     require('dotenv').config();
 }
 
-
+console.log(`env = ${process.env.NODE_ENV}`)
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -23,6 +23,7 @@ const reviewRoutes = require('./routes/reviews');
 const db_url = process.env.db_url ||'mongodb://127.0.0.1:27017/YelpCamp'
 const MongoStore = require('connect-mongo')
 
+console.log(`url = ${db_url}`)
 //'mongodb://127.0.0.1:27017/YelpCamp'
 //mongoose.connect(db_url, { useNewUrlParser: true, useUnifiedTopology: true }) 
 mongoose.connect(db_url, { useNewUrlParser: true, useUnifiedTopology: true }) 
