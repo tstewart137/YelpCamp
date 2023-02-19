@@ -20,7 +20,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
-const db_url = process.env.db_url //||'mongodb://127.0.0.1:27017/YelpCamp'
+const db_url = process.env.db_url ||'mongodb://127.0.0.1:27017/YelpCamp'
 const MongoStore = require('connect-mongo')
 
 console.log(`url = ${db_url}`)
